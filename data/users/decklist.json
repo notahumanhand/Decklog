@@ -2,8 +2,8 @@
   "metadata": {
     "project": "Decklog",
     "created_at": "2026-10-12T23:06:30.476964+00:00",
-    "last_updated": "2026-10-13T00:25:52.920589+00:00",
-    "deck_count": 51
+    "last_updated": "2026-10-13T19:17:05.391110+00:00",
+    "deck_count": 52
   },
   "decks": [
     {
@@ -367,6 +367,14 @@
       "secondary_commander_id": "6a0b1b7e-1a93-4c00-be94-8fa56af57468",
       "bracket": 3,
       "done": true
+    },
+    {
+      "deck_id": "r315sAWAI0i0z_cifDwUXA",
+      "deck_name": "keywordsalad (kobold on steroids edition)",
+      "commander_id": "b9be5ce9-08bb-4361-940c-9031e429ba86",
+      "secondary_commander_id": "584cee10-f18c-4633-95cc-f2e7a11841ac",
+      "bracket": 2,
+      "done": false
     }
   ]
 }

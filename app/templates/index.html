@@ -128,7 +128,7 @@
       </section>
 
       <div class="catalogue-meta">
-        <p id="result-count" aria-live="polite">Showing 5 sample commanders</p>
+        <p id="result-count" aria-live="polite">Loading commander catalogue…</p>
         <button class="reset-button" id="reset-filters" type="button">Reset filters</button>
       </div>
 
@@ -148,63 +148,7 @@
                 <th scope="col">Bracket</th>
               </tr>
             </thead>
-            <tbody id="commander-table-body">
-              <tr data-name="Atraxa, Grand Unifier" data-colors="WUBG" data-type="Phyrexian Angel" data-bracket="5" data-deck-name="Eternal Consensus">
-                <td>Atraxa, Grand Unifier</td>
-                <td class="colour-identity" data-value="WUBG">WUBG</td>
-                <td class="mana-cost" data-value="{7}{W}{U}{B}{G}">{7}{W}{U}{B}{G}</td>
-                <td class="numeric-cell">7</td>
-                <td>Legendary Creature - Phyrexian Angel</td>
-                <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck built" disabled></td>
-                <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck done" disabled></td>
-                <td><a class="deck-link" href="#deck-atraxa" data-placeholder-link>Eternal Consensus</a></td>
-                <td><span class="bracket-value">5</span></td>
-              </tr>
-              <tr data-name="Krenko, Mob Boss" data-colors="R" data-type="Goblin" data-bracket="">
-                <td>Krenko, Mob Boss</td>
-                <td class="colour-identity" data-value="R">R</td>
-                <td class="mana-cost" data-value="{2}{R}{R}">{2}{R}{R}</td>
-                <td class="numeric-cell">4</td>
-                <td>Legendary Creature - Goblin</td>
-                <td class="center-cell"><input type="checkbox" aria-label="Krenko deck built" disabled></td>
-                <td class="center-cell"></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr data-name="Lathril, Blade of the Elves" data-colors="BG" data-type="Elf Noble" data-bracket="">
-                <td>Lathril, Blade of the Elves</td>
-                <td class="colour-identity" data-value="BG">BG</td>
-                <td class="mana-cost" data-value="{2}{B}{G}">{2}{B}{G}</td>
-                <td class="numeric-cell">4</td>
-                <td>Legendary Creature - Elf Noble</td>
-                <td class="center-cell"><input type="checkbox" aria-label="Lathril deck built" disabled></td>
-                <td class="center-cell"></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr data-name="Miirym, Sentinel Wyrm" data-colors="URG" data-type="Dragon Spirit" data-bracket="4" data-deck-name="Cascade">
-                <td>Miirym, Sentinel Wyrm</td>
-                <td class="colour-identity" data-value="URG">URG</td>
-                <td class="mana-cost" data-value="{3}{U}{R}{G}">{3}{U}{R}{G}</td>
-                <td class="numeric-cell">6</td>
-                <td>Legendary Creature - Dragon Spirit</td>
-                <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck built" disabled></td>
-                <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck done" disabled></td>
-                <td><a class="deck-link" href="#deck-miirym" data-placeholder-link>Cascade</a></td>
-                <td><span class="bracket-value">4</span></td>
-              </tr>
-              <tr data-name="The Ur-Dragon" data-colors="WUBRG" data-type="Dragon Avatar" data-bracket="">
-                <td>The Ur-Dragon</td>
-                <td class="colour-identity" data-value="WUBRG">WUBRG</td>
-                <td class="mana-cost" data-value="{4}{W}{U}{B}{R}{G}">{4}{W}{U}{B}{R}{G}</td>
-                <td class="numeric-cell">9</td>
-                <td>Legendary Creature - Dragon Avatar</td>
-                <td class="center-cell"><input type="checkbox" aria-label="The Ur-Dragon deck built" disabled></td>
-                <td class="center-cell"></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
+            <tbody id="commander-table-body"></tbody>
           </table>
         </div>
         <div class="empty-state" id="empty-state" hidden>
@@ -213,7 +157,7 @@
         </div>
       </section>
 
-      <p class="prototype-note">Wireframe preview · Sample rows are hard-coded for layout testing. Data integration comes next.</p>
+      <p class="prototype-note">Commander data and deck associations are loaded from the local project datasets.</p>
     </main>
   </div>
 </body>

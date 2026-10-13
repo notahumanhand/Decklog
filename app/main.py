@@ -3,7 +3,7 @@
 Run locally from the repository root with:
     uvicorn app.main:app --reload
 
-The homepage currently serves the hard-coded wireframe in app/templates/index.html.
+The homepage serves the commander catalogue and enriches it with the local decklist.
 The API reads the committed JSON datasets without making runtime Scryfall requests.
 """
 
@@ -100,15 +100,19 @@ def _build_commander_response(
         if not isinstance(deck, dict):
             continue
 
-        commander_ids = [
-            deck.get("commander_id"),
-            deck.get("secondary_commander_id"),
-            deck.get("companion_id"),
-        ]
+        # A deck may reference the same card in more than one role field.
+        # Associate it once per unique identifier to avoid duplicate deck rows.
+        commander_ids = {
+            str(commander_id)
+            for commander_id in (
+                deck.get("commander_id"),
+                deck.get("secondary_commander_id"),
+                deck.get("companion_id"),
+            )
+            if commander_id is not None
+        }
         for commander_id in commander_ids:
-            if commander_id is None:
-                continue
-            decks_by_commander_id.setdefault(str(commander_id), []).append(deck)
+            decks_by_commander_id.setdefault(commander_id, []).append(deck)
 
     results: list[dict[str, Any]] = []
     for commander in catalogue["commanders"]:
@@ -126,6 +130,10 @@ def _build_commander_response(
             decks_by_commander_id.get(str(commander_id), [])
             if commander_id is not None
             else []
+        )
+        linked_decks = sorted(
+            linked_decks,
+            key=lambda deck: str(deck.get("deck_name", "")).casefold(),
         )
 
         results.append(
@@ -159,7 +167,7 @@ def _build_commander_response(
 
 @app.get("/", include_in_schema=False)
 async def homepage(request: Request):
-    """Render the initial hard-coded homepage wireframe."""
+    """Render the homepage shell; the client loads catalogue data from the API."""
     return templates.TemplateResponse(
         request=request,
         name="index.html",
@@ -177,8 +185,7 @@ async def health_check() -> dict[str, str]:
 async def get_commanders() -> JSONResponse:
     """Return the commander catalogue with any matching deck metadata.
 
-    The homepage does not consume this endpoint yet; the current table remains
-    hard-coded until the frontend data-integration step.
+    The homepage uses this endpoint to populate the commander table.
     """
     try:
         catalogue, decklist = _load_datasets()
