@@ -7,7 +7,7 @@ import requests
 
 
 # Project paths
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "oracle-cards.jsonl"
 
 COMMANDER_OUTPUT_PATH = PROJECT_ROOT / "data" / "commander_catalogue.json"

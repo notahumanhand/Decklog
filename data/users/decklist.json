@@ -1,0 +1,372 @@
+{
+  "metadata": {
+    "project": "Decklog",
+    "created_at": "2026-10-12T23:06:30.476964+00:00",
+    "last_updated": "2026-10-13T00:25:52.920589+00:00",
+    "deck_count": 51
+  },
+  "decks": [
+    {
+      "deck_id": "KGX3Rx9R70KYNNT3OjETgQ",
+      "deck_name": "40-foot-tall ninjas?",
+      "commander_id": "ed1d21ba-ddfe-4f82-9e37-93f9e2c7ba33",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "ZbfJPcqrok--v2RJnKtOfQ",
+      "deck_name": "all i wanna do is see you turn into a giant woman",
+      "commander_id": "5fe07a76-f261-4f16-8a15-571bed707261",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "6uHwyDQMv0m_xwtn5CHPVQ",
+      "deck_name": "arachnophobia exposure therapy",
+      "commander_id": "695eea46-1535-48c5-bbb6-0b8379e77bfc",
+      "bracket": 1,
+      "done": true
+    },
+    {
+      "deck_id": "jBjo4cv_FEOQaRASj1C_eg",
+      "deck_name": "beaver behaviour",
+      "commander_id": "a5e54d2b-aad8-4ddd-af4b-13668913762b",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "7GlfQV4r2EKuwNEl1NuN5g",
+      "deck_name": "be the eldritch horror you fail to comprehend in the world",
+      "commander_id": "725880b2-1675-414f-b61b-cf6533797dbf",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "d0jyEFWckUWJ8w-aF8Eljw",
+      "deck_name": "boots with the fur",
+      "commander_id": "87966759-206a-4a2d-bf78-86f727c29972",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "GTa3GnyFLUyYG0IE3Cjj9g",
+      "deck_name": "burn it all down",
+      "commander_id": "6fe9fd59-9cac-4572-8f94-bc19bea44f94",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "micgftRGs0-mSLqXctDxuw",
+      "deck_name": "bury me shallow because i'm coming back",
+      "commander_id": "3fad7072-21e3-446e-a28f-615038c8bfea",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "ZxFhNwCgEEqdyFZO_ElgWQ",
+      "deck_name": "chugging mana like it's 5-hour energy",
+      "commander_id": "9da896e1-2256-425b-b801-1ae6f0470559",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "ODlzAyqnAEifVyw0MsdjQQ",
+      "deck_name": "cracking open a boy with the cold ones",
+      "commander_id": "41e2790d-49f5-4e98-b8d9-04179f47f13a",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "E0lKXr47i0qutmMLeNSM5Q",
+      "deck_name": "daeni's donner dinner party",
+      "commander_id": "0f1b5cea-2035-444c-9f63-87dcb9782c74",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "KhB_ErnUhkeqRznGOCeTpw",
+      "deck_name": "daeni's simic exposure therapy",
+      "commander_id": "40eacdae-fae5-46b9-a9e5-9211469f74fc",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "qXJaKpu98kqJEDyoBrerPg",
+      "deck_name": "deathtouch on steroids",
+      "commander_id": "09d01406-b529-4c3b-900e-d8c889a4c400",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "oJqXBClxXUOJyA2K-oVsrg",
+      "deck_name": "eepy boy? wake him up!",
+      "commander_id": "caeb39ee-f0bb-4305-9e8b-b30ba0a74c78",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "ZaZemKiBV0K4n9uzyFGspw",
+      "deck_name": "exit, pursued by dragons",
+      "commander_id": "895f23a2-55b7-4cc0-8939-2efaaf097e6f",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "dra0p6AZ0E6ZLgTr_W2rMw",
+      "deck_name": "get swarmed motherfucker",
+      "commander_id": "e025a714-02da-4b0c-8021-cf3e8dc9b19e",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "2eFL2A-aR0SSW6PUu1pwmA",
+      "deck_name": "glue and duct tape",
+      "commander_id": "3ed41d2d-211b-4013-8562-8c64d54cc43a",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "nFRlNULp20yz0N6sVxh-CA",
+      "deck_name": "hares, apparently",
+      "commander_id": "245d0ccf-87b6-460a-8b99-9e2079f2d375",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "_95n4_hZQ02hPaRbWC_76A",
+      "deck_name": "hay there delilah",
+      "commander_id": "73dc28a7-37ac-4b16-aa00-967c9c44d979",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "b304uVYEXkeC_vA82472NQ",
+      "deck_name": "hey can i get that back?",
+      "commander_id": "af206aed-1f58-4f5a-ba42-0e0d1f282940",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "eyF8y29uE0Gj0O7-lZNweg",
+      "deck_name": "i fell down this hill now i have glue on my hands",
+      "commander_id": "44600a74-9584-488b-a342-2fccd8fa7599",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "_PYPnfpkf0W5TYpcm3Ls7g",
+      "deck_name": "inefficient tax evasion",
+      "commander_id": "7f546d54-584d-4bec-8fbb-1ea2f8ab277e",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "V1YOlvT5GkCbGnkaRVJZKw",
+      "deck_name": "insult & injury",
+      "commander_id": "b0d3fd57-1420-4dd1-8410-9d659655287f",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "VvO5C0KLQUyQAMmJPt8c8Q",
+      "deck_name": "its a group hug deck dont worry about it",
+      "commander_id": "359b8f2c-831e-47d0-9267-dae79cecb63a",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "iJr9nJOqRkKXfdgIMSzkFg",
+      "deck_name": "just regular guys",
+      "commander_id": "138201c0-556d-4c76-b383-90fc9dad0fe0",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "16JhoPPa5k2el1Ho3rxUvg",
+      "deck_name": "life insurance fraud",
+      "commander_id": "b56cebe0-3752-4ce5-afbd-911543784015",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "LkJC7l4sTkyo3dx_eqmcqQ",
+      "deck_name": "medusa's menagerie",
+      "commander_id": "378fcd0f-1096-4769-9149-55b4a889ff56",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "ZKmnP2WTRkS40x-nJNEjsg",
+      "deck_name": "my commander is a kale smoothie",
+      "commander_id": "620ff5f2-7d3f-467f-943d-3b62c2135023",
+      "bracket": 2,
+      "done": true
+    },
+    {
+      "deck_id": "EKSWi7QYNEek5AfVAMQpcA",
+      "deck_name": "no shit, sherlock",
+      "commander_id": "0ee06ed0-717a-4bfa-b634-d00e013c1f16",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "50YVG1-hsUy8pSMq0dTTpg",
+      "deck_name": "off to the woodchipper with you!",
+      "commander_id": "f15b3b76-d38a-48db-bb44-3296183c8641",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "FJJDOTmeUkW8s89bUdcRHg",
+      "deck_name": "one man's treasure is another man's 20 duplicates of that treasure",
+      "commander_id": "276c4643-13ad-43bf-840b-08c025ebc065",
+      "bracket": 2,
+      "done": true
+    },
+    {
+      "deck_id": "3cdCG58PpE-0upRxSGPuaQ",
+      "deck_name": "one wyrm army",
+      "commander_id": "880fcf86-e6a9-482c-b91d-750f293127b2",
+      "bracket": 2,
+      "done": true
+    },
+    {
+      "deck_id": "PH-2W7_75E2zmdsb7Ri3gQ",
+      "deck_name": "perpetual energy (spleen edition)",
+      "commander_id": "20f602b3-814f-406c-b7eb-2d1fc98f8cf1",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "OX78WrQN2U-LcXRxqlRG4Q",
+      "deck_name": "prepare for double, make it trouble",
+      "commander_id": "95b53836-18aa-451a-992d-2a111deeeab2",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "1jYOaocyz0C5Y3ZBn62IKg",
+      "deck_name": "random bullshit go",
+      "commander_id": "23270e4a-a222-4ffb-a946-d0e20d665187",
+      "companion_id": "7b515c56-7b1e-42a8-82b0-1b30201fb162",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "Pciyh1JkskO8fBLLUS5nzQ",
+      "deck_name": "seven wonders",
+      "commander_id": "67f0cef6-8ef4-4c39-b306-2b580036894e",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "Kk8kncK4E0er1LTtO8jvvg",
+      "deck_name": "sleepy creepy",
+      "commander_id": "a4d33e21-d3fe-4d5b-903c-b75e859d6f7f",
+      "companion_id": "3bc757c1-3adb-4321-8832-8e1cc9e687f7",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "0c_JPSE_9kexCAyLEG0RIw",
+      "deck_name": "stop hitting yourself",
+      "commander_id": "a5e9142e-76bf-40d4-aeaa-ffe197d38f25",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "FM5tSNVBxEqbdgr0KMypmQ",
+      "deck_name": "the road to hell is paved with sinister intentions, actually",
+      "commander_id": "696363c9-e8a7-4c65-b65c-4a94891ec43d",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "GqWR18vAYU2U9caG1ShGew",
+      "deck_name": "the wonderful wizard of ouch",
+      "commander_id": "8a5e3c8e-8e22-49b9-8ee5-4a36361f0da6",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "urA2SbtfOECq7Du5hpIDWg",
+      "deck_name": "thopter purgatory part 2 electric boogaloo",
+      "commander_id": "52241b9c-7a69-4176-9234-8bdab09d8e64",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "PcrMwUUptEGpveKDnKth_Q",
+      "deck_name": "tiny skull big heart",
+      "commander_id": "fd335b2f-e6a2-45ac-949e-a67278b21cb6",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "dn7Etus4dkqqZL7cK3IpiA",
+      "deck_name": "too stupid to live, too angry to die",
+      "commander_id": "aea8345a-191d-4c62-8d15-a716a9934b66",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "If-13DQpmU23yIDaIT0GKQ",
+      "deck_name": "very demure, very mindful",
+      "commander_id": "f1c303d8-6d77-4bc6-82d1-2a409a6f2cfd",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "MRk2ZUWSnUapqh0gnFS3PA",
+      "deck_name": "wait for it...",
+      "commander_id": "ad3f4ec9-9905-421b-98ed-78bb6fc9b450",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "1lXBRFKrl0qi1sqRZY0pJw",
+      "deck_name": "weaponised claustrophobia",
+      "commander_id": "e7fc5ad6-f2f0-4b06-a61b-05022db9d93b",
+      "bracket": 3,
+      "done": true
+    },
+    {
+      "deck_id": "HhUy2tCKJE6Pe6QCtcluww",
+      "deck_name": "WHY are you buying CLOTHES at the SOUP STORE?!?!?!",
+      "commander_id": "f398d222-f8e7-4983-9a77-267adef7f551",
+      "bracket": 2,
+      "done": true
+    },
+    {
+      "deck_id": "4okZMxBJcE2CIv9bIu-11g",
+      "deck_name": "daeni selesnya ig",
+      "commander_id": "0aeeb0d7-15a3-4722-ad67-8fc7fe89220d",
+      "secondary_commander_id": "d46dcc75-55ff-4226-a392-a49755d269d2",
+      "bracket": 4,
+      "done": true
+    },
+    {
+      "deck_id": "S7RcVtA69UGG61VGghLTUg",
+      "deck_name": "exploding kittens (aristocats)",
+      "commander_id": "6a0b1b7e-1a93-4c00-be94-8fa56af57468",
+      "secondary_commander_id": "e39a1f6b-6b13-4a8b-ac0c-63ede4636812",
+      "bracket": 2,
+      "done": true
+    },
+    {
+      "deck_id": "Y4ZsD1D07UKPPFTu_RPFlg",
+      "deck_name": "hop to it!",
+      "commander_id": "69924636-138e-4baa-a378-0fd7df5b847d",
+      "bracket": 0,
+      "done": false
+    },
+    {
+      "deck_id": "Nu4IYLL4WU-7iyZ3AkHg7Q",
+      "deck_name": "keywordsalad (angry cat edition)",
+      "commander_id": "b9be5ce9-08bb-4361-940c-9031e429ba86",
+      "secondary_commander_id": "6a0b1b7e-1a93-4c00-be94-8fa56af57468",
+      "bracket": 3,
+      "done": true
+    }
+  ]
+}
