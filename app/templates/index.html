@@ -32,42 +32,70 @@
           <input id="commander-search" type="search" placeholder="Search commanders..." autocomplete="off">
         </label>
 
-        <label class="filter-field">
-          <span class="visually-hidden">Filter by colour identity</span>
-          <select id="color-filter">
-            <option value="">All Colors</option>
-            <option value="W">White (W)</option>
-            <option value="U">Blue (U)</option>
-            <option value="B">Black (B)</option>
-            <option value="R">Red (R)</option>
-            <option value="G">Green (G)</option>
-            <option value="WU">Azorius (WU)</option>
-            <option value="UB">Dimir (UB)</option>
-            <option value="BR">Rakdos (BR)</option>
-            <option value="RG">Gruul (RG)</option>
-            <option value="GW">Selesnya (GW)</option>
-            <option value="WUB">Esper (WUB)</option>
-            <option value="UBR">Grixis (UBR)</option>
-            <option value="BRG">Jund (BRG)</option>
-            <option value="RGW">Naya (RGW)</option>
-            <option value="GWU">Bant (GWU)</option>
-            <option value="WUBRG">Five-color (WUBRG)</option>
-            <option value="C">Colorless (C)</option>
-          </select>
-        </label>
-
-        <label class="filter-field">
-          <span class="visually-hidden">Filter by creature type</span>
-          <select id="type-filter">
-            <option value="">All Types</option>
-            <option value="Angel">Angel</option>
-            <option value="Goblin">Goblin</option>
-            <option value="Elf">Elf</option>
-            <option value="Dragon">Dragon</option>
-            <option value="Human">Human</option>
-            <option value="Wizard">Wizard</option>
-          </select>
-        </label>
+        <div class="color-filter">
+          <span class="visually-hidden" id="color-filter-description">Filter by colour identity</span>
+          <input id="color-filter" type="hidden" value="">
+          <button class="filter-trigger" id="color-filter-trigger" type="button"
+                  aria-expanded="false" aria-controls="color-filter-menu">
+            <span id="color-filter-label">All Colors</span>
+            <span class="filter-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="color-filter-menu" id="color-filter-menu" hidden>
+            <button class="color-option all-colors-option" type="button" data-color="" data-label="All Colors" aria-pressed="true">All Colors</button>
+            <details class="color-group" open>
+              <summary>Mono</summary>
+              <div class="color-options">
+                <button class="color-option" type="button" data-color="W" data-label="White"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span>White</button>
+                <button class="color-option" type="button" data-color="U" data-label="Blue"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span>Blue</button>
+                <button class="color-option" type="button" data-color="B" data-label="Black"><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span>Black</button>
+                <button class="color-option" type="button" data-color="R" data-label="Red"><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Red</button>
+                <button class="color-option" type="button" data-color="G" data-label="Green"><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Green</button>
+                <button class="color-option" type="button" data-color="C" data-label="Colorless"><span class="mana-badge" style="--symbol-bg:#CCCCCC;--symbol-text:#000">C</span>Colorless</button>
+              </div>
+            </details>
+            <details class="color-group">
+              <summary>2 Color</summary>
+              <div class="color-options">
+                <button class="color-option" type="button" data-color="WU" data-label="Azorius"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span>Azorius</button>
+                <button class="color-option" type="button" data-color="UB" data-label="Dimir"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span>Dimir</button>
+                <button class="color-option" type="button" data-color="BR" data-label="Rakdos"><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Rakdos</button>
+                <button class="color-option" type="button" data-color="RG" data-label="Gruul"><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Gruul</button>
+                <button class="color-option" type="button" data-color="GW" data-label="Selesnya"><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span>Selesnya</button>
+                <button class="color-option" type="button" data-color="WB" data-label="Orzhov"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span>Orzhov</button>
+                <button class="color-option" type="button" data-color="UR" data-label="Izzet"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Izzet</button>
+                <button class="color-option" type="button" data-color="BG" data-label="Golgari"><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Golgari</button>
+                <button class="color-option" type="button" data-color="RW" data-label="Boros"><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span>Boros</button>
+                <button class="color-option" type="button" data-color="GU" data-label="Simic"><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span>Simic</button>
+              </div>
+            </details>
+            <details class="color-group">
+              <summary>3 Color</summary>
+              <div class="color-options">
+                <button class="color-option" type="button" data-color="WUB" data-label="Esper"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span>Esper</button>
+                <button class="color-option" type="button" data-color="UBR" data-label="Grixis"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Grixis</button>
+                <button class="color-option" type="button" data-color="BRG" data-label="Jund"><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Jund</button>
+                <button class="color-option" type="button" data-color="RGW" data-label="Naya"><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span>Naya</button>
+                <button class="color-option" type="button" data-color="GWU" data-label="Bant"><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span>Bant</button>
+                <button class="color-option" type="button" data-color="WBG" data-label="Abzan"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Abzan</button>
+                <button class="color-option" type="button" data-color="WUR" data-label="Jeskai"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Jeskai</button>
+                <button class="color-option" type="button" data-color="UBG" data-label="Sultai"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Sultai</button>
+                <button class="color-option" type="button" data-color="WBR" data-label="Mardu"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Mardu</button>
+                <button class="color-option" type="button" data-color="URG" data-label="Temur"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Temur</button>
+              </div>
+            </details>
+            <details class="color-group">
+              <summary>4+ Color</summary>
+              <div class="color-options">
+                <button class="color-option" type="button" data-color="WUBR" data-label="Yore-Tiller"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Yore-Tiller</button>
+                <button class="color-option" type="button" data-color="WUBG" data-label="Glint-Eye"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Glint-Eye</button>
+                <button class="color-option" type="button" data-color="WURG" data-label="Dune-Brood"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Dune-Brood</button>
+                <button class="color-option" type="button" data-color="WBRG" data-label="Ink-Treader"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Ink-Treader</button>
+                <button class="color-option" type="button" data-color="UBRG" data-label="Witch-Maw"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Witch-Maw</button>
+                <button class="color-option" type="button" data-color="WUBRG" data-label="Five Color"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Five Color</button>
+              </div>
+            </details>
+          </div>
+        </div>
 
         <label class="filter-field">
           <span class="visually-hidden">Filter by deck bracket</span>
@@ -81,6 +109,11 @@
             <option value="unassigned">Unassigned</option>
           </select>
         </label>
+
+        <label class="search-field deck-search-field">
+          <span class="visually-hidden">Search deck names</span>
+          <input id="deck-search" type="search" placeholder="Search deck names..." autocomplete="off">
+        </label>
       </section>
 
       <div class="catalogue-meta">
@@ -93,7 +126,6 @@
           <table class="commander-table">
             <thead>
               <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Card Name</th>
                 <th scope="col">Colour<br>Identity</th>
                 <th scope="col">Mana Cost</th>
@@ -106,11 +138,10 @@
               </tr>
             </thead>
             <tbody id="commander-table-body">
-              <tr data-name="Atraxa, Grand Unifier" data-colors="WUBG" data-type="Phyrexian Angel" data-bracket="5">
-                <td class="id-cell">c0001</td>
+              <tr data-name="Atraxa, Grand Unifier" data-colors="WUBG" data-type="Phyrexian Angel" data-bracket="5" data-deck-name="Eternal Consensus">
                 <td>Atraxa, Grand Unifier</td>
-                <td>WUBG</td>
-                <td class="mana-cost">{7}{W}{U}{B}{G}</td>
+                <td class="colour-identity" data-value="WUBG">WUBG</td>
+                <td class="mana-cost" data-value="{7}{W}{U}{B}{G}">{7}{W}{U}{B}{G}</td>
                 <td class="numeric-cell">7</td>
                 <td>Phyrexian Angel</td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck built" disabled></td>
@@ -119,10 +150,9 @@
                 <td><span class="bracket-value">5</span></td>
               </tr>
               <tr data-name="Krenko, Mob Boss" data-colors="R" data-type="Goblin" data-bracket="">
-                <td class="id-cell">c0002</td>
                 <td>Krenko, Mob Boss</td>
-                <td>R</td>
-                <td class="mana-cost">{2}{R}{R}</td>
+                <td class="colour-identity" data-value="R">R</td>
+                <td class="mana-cost" data-value="{2}{R}{R}">{2}{R}{R}</td>
                 <td class="numeric-cell">4</td>
                 <td>Goblin</td>
                 <td class="center-cell"><input type="checkbox" aria-label="Krenko deck built" disabled></td>
@@ -131,10 +161,9 @@
                 <td></td>
               </tr>
               <tr data-name="Lathril, Blade of the Elves" data-colors="BG" data-type="Elf Noble" data-bracket="">
-                <td class="id-cell">c0003</td>
                 <td>Lathril, Blade of the Elves</td>
-                <td>BG</td>
-                <td class="mana-cost">{2}{B}{G}</td>
+                <td class="colour-identity" data-value="BG">BG</td>
+                <td class="mana-cost" data-value="{2}{B}{G}">{2}{B}{G}</td>
                 <td class="numeric-cell">4</td>
                 <td>Elf Noble</td>
                 <td class="center-cell"><input type="checkbox" aria-label="Lathril deck built" disabled></td>
@@ -142,11 +171,10 @@
                 <td></td>
                 <td></td>
               </tr>
-              <tr data-name="Miirym, Sentinel Wyrm" data-colors="URG" data-type="Dragon Spirit" data-bracket="4">
-                <td class="id-cell">c0004</td>
+              <tr data-name="Miirym, Sentinel Wyrm" data-colors="URG" data-type="Dragon Spirit" data-bracket="4" data-deck-name="Cascade">
                 <td>Miirym, Sentinel Wyrm</td>
-                <td>URG</td>
-                <td class="mana-cost">{3}{U}{R}{G}</td>
+                <td class="colour-identity" data-value="URG">URG</td>
+                <td class="mana-cost" data-value="{3}{U}{R}{G}">{3}{U}{R}{G}</td>
                 <td class="numeric-cell">6</td>
                 <td>Dragon Spirit</td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck built" disabled></td>
@@ -155,10 +183,9 @@
                 <td><span class="bracket-value">4</span></td>
               </tr>
               <tr data-name="The Ur-Dragon" data-colors="WUBRG" data-type="Dragon Avatar" data-bracket="">
-                <td class="id-cell">c0005</td>
                 <td>The Ur-Dragon</td>
-                <td>WUBRG</td>
-                <td class="mana-cost">{4}{W}{U}{B}{R}{G}</td>
+                <td class="colour-identity" data-value="WUBRG">WUBRG</td>
+                <td class="mana-cost" data-value="{4}{W}{U}{B}{R}{G}">{4}{W}{U}{B}{R}{G}</td>
                 <td class="numeric-cell">9</td>
                 <td>Dragon Avatar</td>
                 <td class="center-cell"><input type="checkbox" aria-label="The Ur-Dragon deck built" disabled></td>
