@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Decklog — a personal Commander deckbuilding tracker.">
+  <title>Decklog | Commanders</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="/static/js/commanders.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Decklog home">Decklog</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="/" aria-current="page">Commanders</a>
+        <a class="nav-link" href="#my-decks" data-placeholder-link>My Decks</a>
+        <a class="nav-link" href="#stats" data-placeholder-link>Stats</a>
+        <a class="nav-link" href="#set-progress" data-placeholder-link>Set Progress</a>
+        <a class="nav-link" href="#about" data-placeholder-link>About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="Commander catalogue filters">
+        <label class="search-field">
+          <span class="visually-hidden">Search commanders</span>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+          <input id="commander-search" type="search" placeholder="Search commanders..." autocomplete="off">
+        </label>
+
+        <label class="filter-field">
+          <span class="visually-hidden">Filter by colour identity</span>
+          <select id="color-filter">
+            <option value="">All Colors</option>
+            <option value="W">White (W)</option>
+            <option value="U">Blue (U)</option>
+            <option value="B">Black (B)</option>
+            <option value="R">Red (R)</option>
+            <option value="G">Green (G)</option>
+            <option value="WU">Azorius (WU)</option>
+            <option value="UB">Dimir (UB)</option>
+            <option value="BR">Rakdos (BR)</option>
+            <option value="RG">Gruul (RG)</option>
+            <option value="GW">Selesnya (GW)</option>
+            <option value="WUB">Esper (WUB)</option>
+            <option value="UBR">Grixis (UBR)</option>
+            <option value="BRG">Jund (BRG)</option>
+            <option value="RGW">Naya (RGW)</option>
+            <option value="GWU">Bant (GWU)</option>
+            <option value="WUBRG">Five-color (WUBRG)</option>
+            <option value="C">Colorless (C)</option>
+          </select>
+        </label>
+
+        <label class="filter-field">
+          <span class="visually-hidden">Filter by creature type</span>
+          <select id="type-filter">
+            <option value="">All Types</option>
+            <option value="Angel">Angel</option>
+            <option value="Goblin">Goblin</option>
+            <option value="Elf">Elf</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Human">Human</option>
+            <option value="Wizard">Wizard</option>
+          </select>
+        </label>
+
+        <label class="filter-field">
+          <span class="visually-hidden">Filter by deck bracket</span>
+          <select id="bracket-filter">
+            <option value="">All Brackets</option>
+            <option value="1">Bracket 1</option>
+            <option value="2">Bracket 2</option>
+            <option value="3">Bracket 3</option>
+            <option value="4">Bracket 4</option>
+            <option value="5">Bracket 5</option>
+            <option value="unassigned">Unassigned</option>
+          </select>
+        </label>
+      </section>
+
+      <div class="catalogue-meta">
+        <p id="result-count" aria-live="polite">Showing 5 sample commanders</p>
+        <button class="reset-button" id="reset-filters" type="button">Reset filters</button>
+      </div>
+
+      <section class="table-frame" aria-label="Commander catalogue">
+        <div class="table-scroll">
+          <table class="commander-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Card Name</th>
+                <th scope="col">Colour<br>Identity</th>
+                <th scope="col">Mana Cost</th>
+                <th scope="col">CMC</th>
+                <th scope="col">Creature Type</th>
+                <th scope="col" class="center-cell">Built</th>
+                <th scope="col" class="center-cell">Done</th>
+                <th scope="col">Deck Name</th>
+                <th scope="col">Bracket</th>
+              </tr>
+            </thead>
+            <tbody id="commander-table-body">
+              <tr data-name="Atraxa, Grand Unifier" data-colors="WUBG" data-type="Phyrexian Angel" data-bracket="5">
+                <td class="id-cell">c0001</td>
+                <td>Atraxa, Grand Unifier</td>
+                <td>WUBG</td>
+                <td class="mana-cost">{7}{W}{U}{B}{G}</td>
+                <td class="numeric-cell">7</td>
+                <td>Phyrexian Angel</td>
+                <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck built" disabled></td>
+                <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck done" disabled></td>
+                <td><a class="deck-link" href="#deck-atraxa" data-placeholder-link>Eternal Consensus</a></td>
+                <td><span class="bracket-value">5</span></td>
+              </tr>
+              <tr data-name="Krenko, Mob Boss" data-colors="R" data-type="Goblin" data-bracket="">
+                <td class="id-cell">c0002</td>
+                <td>Krenko, Mob Boss</td>
+                <td>R</td>
+                <td class="mana-cost">{2}{R}{R}</td>
+                <td class="numeric-cell">4</td>
+                <td>Goblin</td>
+                <td class="center-cell"><input type="checkbox" aria-label="Krenko deck built" disabled></td>
+                <td class="center-cell"></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr data-name="Lathril, Blade of the Elves" data-colors="BG" data-type="Elf Noble" data-bracket="">
+                <td class="id-cell">c0003</td>
+                <td>Lathril, Blade of the Elves</td>
+                <td>BG</td>
+                <td class="mana-cost">{2}{B}{G}</td>
+                <td class="numeric-cell">4</td>
+                <td>Elf Noble</td>
+                <td class="center-cell"><input type="checkbox" aria-label="Lathril deck built" disabled></td>
+                <td class="center-cell"></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr data-name="Miirym, Sentinel Wyrm" data-colors="URG" data-type="Dragon Spirit" data-bracket="4">
+                <td class="id-cell">c0004</td>
+                <td>Miirym, Sentinel Wyrm</td>
+                <td>URG</td>
+                <td class="mana-cost">{3}{U}{R}{G}</td>
+                <td class="numeric-cell">6</td>
+                <td>Dragon Spirit</td>
+                <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck built" disabled></td>
+                <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck done" disabled></td>
+                <td><a class="deck-link" href="#deck-miirym" data-placeholder-link>Cascade</a></td>
+                <td><span class="bracket-value">4</span></td>
+              </tr>
+              <tr data-name="The Ur-Dragon" data-colors="WUBRG" data-type="Dragon Avatar" data-bracket="">
+                <td class="id-cell">c0005</td>
+                <td>The Ur-Dragon</td>
+                <td>WUBRG</td>
+                <td class="mana-cost">{4}{W}{U}{B}{R}{G}</td>
+                <td class="numeric-cell">9</td>
+                <td>Dragon Avatar</td>
+                <td class="center-cell"><input type="checkbox" aria-label="The Ur-Dragon deck built" disabled></td>
+                <td class="center-cell"></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>
+          <strong>No commanders match these filters.</strong>
+          <span>Try a different search or reset the filters.</span>
+        </div>
+      </section>
+
+      <p class="prototype-note">Wireframe preview · Sample rows are hard-coded for layout testing. Data integration comes next.</p>
+    </main>
+  </div>
+</body>
+</html>

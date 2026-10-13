@@ -2,6 +2,8 @@
 
 Decklog is a personal tool for tracking Commander deckbuilding progress, statistics, and card data. This repository and its associated website are configured for my personal Commander decks, but the project can be adapted to track your own decks.
 
+Decklog provides a centralized view of Commander deckbuilding progress, combining a searchable, filterable catalogue of Commander-legal cards with deck-specific information and statistics. It supports tracking individual decks, including their card lists, build status, and relevant deck data, using structured information sourced from Scryfall and locally maintained deck information. The project also includes workflows for managing card and deck data, helping keep the underlying data consistent as decks are developed and updated.
+
 To maintain a forked version of Decklog, you will need to periodically update the Scryfall source dataset at `data/raw/oracle-cards.jsonl` and run the Card Data Manager workflow to refresh `data/card_index.json` and `data/commander_catalogue.json`. You will also need to replace the user-specific data in `data/users/decklist.json` with your own using the Decklist Manager workflow.
 ## Card Data Manager
 
@@ -211,7 +213,7 @@ The script asks:
 - `CANCEL` exits the script.
 - Any other input skips this field and proceeds to the bracket prompt.
 
-The companion is looked up through Scryfall but is not required to appear in the commander catalogue. Its Oracle ID is saved as `companion_id`. The field is omitted if no companion is added.
+The companion is looked up through Scryfall, and checked to ensure the Companion keyword is present. Its Oracle ID is saved as `companion_id`. The field is omitted if no companion is added.
 
 #### 5. Enter the bracket
 
