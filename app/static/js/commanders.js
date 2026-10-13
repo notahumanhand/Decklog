@@ -7,6 +7,8 @@
   const colorMenu = document.getElementById("color-filter-menu");
   const colorLabel = document.getElementById("color-filter-label");
   const bracketFilter = document.getElementById("bracket-filter");
+  const builtFilter = document.getElementById("built-filter");
+  const doneFilter = document.getElementById("done-filter");
   const resetButton = document.getElementById("reset-filters");
   const resultCount = document.getElementById("result-count");
   const emptyState = document.getElementById("empty-state");
@@ -38,6 +40,10 @@
       const deckName = normalize(getRowDeckName(row));
       const rowColors = canonicalColors(row.dataset.colors);
       const rowBracket = row.dataset.bracket || "";
+      const builtCheckbox = row.querySelector('td:nth-child(6) input[type="checkbox"]');
+      const doneCheckbox = row.querySelector('td:nth-child(7) input[type="checkbox"]');
+      const isBuilt = Boolean(builtCheckbox && builtCheckbox.checked);
+      const isDone = Boolean(doneCheckbox && doneCheckbox.checked);
 
       // String.includes enforces a contiguous, case-insensitive substring match.
       const matchesCommander = !commanderQuery || name.includes(commanderQuery);
@@ -45,7 +51,10 @@
       const matchesColor = !selectedColor || rowColors === selectedColor;
       const matchesBracket = !selectedBracket ||
         (selectedBracket === "unassigned" ? !rowBracket : rowBracket === selectedBracket);
-      const matches = matchesCommander && matchesDeck && matchesColor && matchesBracket;
+      const matchesBuilt = !builtFilter.checked || isBuilt;
+      const matchesDone = !doneFilter.checked || isDone;
+      const matches = matchesCommander && matchesDeck && matchesColor &&
+        matchesBracket && matchesBuilt && matchesDone;
 
       row.hidden = !matches;
       if (matches) visible += 1;
@@ -86,7 +95,7 @@
     }
   });
 
-  [commanderSearch, deckSearch, bracketFilter].forEach((control) => {
+  [commanderSearch, deckSearch, bracketFilter, builtFilter, doneFilter].forEach((control) => {
     control.addEventListener("input", applyFilters);
     control.addEventListener("change", applyFilters);
   });
@@ -95,6 +104,8 @@
     commanderSearch.value = "";
     deckSearch.value = "";
     bracketFilter.value = "";
+    builtFilter.checked = false;
+    doneFilter.checked = false;
     selectColor("", "All Colors");
     applyFilters();
     commanderSearch.focus();

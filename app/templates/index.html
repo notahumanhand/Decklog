@@ -14,9 +14,8 @@
       <a class="wordmark" href="/" aria-label="Decklog home">Decklog</a>
       <nav class="primary-nav" aria-label="Main navigation">
         <a class="nav-link active" href="/" aria-current="page">Commanders</a>
-        <a class="nav-link" href="#my-decks" data-placeholder-link>My Decks</a>
+        <a class="nav-link" href="#my-decks" data-placeholder-link>Decks</a>
         <a class="nav-link" href="#stats" data-placeholder-link>Stats</a>
-        <a class="nav-link" href="#set-progress" data-placeholder-link>Set Progress</a>
         <a class="nav-link" href="#about" data-placeholder-link>About</a>
       </nav>
     </header>
@@ -114,6 +113,18 @@
           <span class="visually-hidden">Search deck names</span>
           <input id="deck-search" type="search" placeholder="Search deck names..." autocomplete="off">
         </label>
+
+        <label class="status-toggle">
+          <input id="built-filter" type="checkbox">
+          <span class="toggle-box" aria-hidden="true"></span>
+          <span>Built only</span>
+        </label>
+
+        <label class="status-toggle">
+          <input id="done-filter" type="checkbox">
+          <span class="toggle-box" aria-hidden="true"></span>
+          <span>Done only</span>
+        </label>
       </section>
 
       <div class="catalogue-meta">
@@ -130,7 +141,7 @@
                 <th scope="col">Colour<br>Identity</th>
                 <th scope="col">Mana Cost</th>
                 <th scope="col">CMC</th>
-                <th scope="col">Creature Type</th>
+                <th scope="col">Type</th>
                 <th scope="col" class="center-cell">Built</th>
                 <th scope="col" class="center-cell">Done</th>
                 <th scope="col">Deck Name</th>
@@ -143,7 +154,7 @@
                 <td class="colour-identity" data-value="WUBG">WUBG</td>
                 <td class="mana-cost" data-value="{7}{W}{U}{B}{G}">{7}{W}{U}{B}{G}</td>
                 <td class="numeric-cell">7</td>
-                <td>Phyrexian Angel</td>
+                <td>Legendary Creature - Phyrexian Angel</td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck built" disabled></td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Atraxa deck done" disabled></td>
                 <td><a class="deck-link" href="#deck-atraxa" data-placeholder-link>Eternal Consensus</a></td>
@@ -154,7 +165,7 @@
                 <td class="colour-identity" data-value="R">R</td>
                 <td class="mana-cost" data-value="{2}{R}{R}">{2}{R}{R}</td>
                 <td class="numeric-cell">4</td>
-                <td>Goblin</td>
+                <td>Legendary Creature - Goblin</td>
                 <td class="center-cell"><input type="checkbox" aria-label="Krenko deck built" disabled></td>
                 <td class="center-cell"></td>
                 <td></td>
@@ -165,7 +176,7 @@
                 <td class="colour-identity" data-value="BG">BG</td>
                 <td class="mana-cost" data-value="{2}{B}{G}">{2}{B}{G}</td>
                 <td class="numeric-cell">4</td>
-                <td>Elf Noble</td>
+                <td>Legendary Creature - Elf Noble</td>
                 <td class="center-cell"><input type="checkbox" aria-label="Lathril deck built" disabled></td>
                 <td class="center-cell"></td>
                 <td></td>
@@ -176,7 +187,7 @@
                 <td class="colour-identity" data-value="URG">URG</td>
                 <td class="mana-cost" data-value="{3}{U}{R}{G}">{3}{U}{R}{G}</td>
                 <td class="numeric-cell">6</td>
-                <td>Dragon Spirit</td>
+                <td>Legendary Creature - Dragon Spirit</td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck built" disabled></td>
                 <td class="center-cell"><input type="checkbox" checked aria-label="Miirym deck done" disabled></td>
                 <td><a class="deck-link" href="#deck-miirym" data-placeholder-link>Cascade</a></td>
@@ -187,7 +198,7 @@
                 <td class="colour-identity" data-value="WUBRG">WUBRG</td>
                 <td class="mana-cost" data-value="{4}{W}{U}{B}{R}{G}">{4}{W}{U}{B}{R}{G}</td>
                 <td class="numeric-cell">9</td>
-                <td>Dragon Avatar</td>
+                <td>Legendary Creature - Dragon Avatar</td>
                 <td class="center-cell"><input type="checkbox" aria-label="The Ur-Dragon deck built" disabled></td>
                 <td class="center-cell"></td>
                 <td></td>

@@ -465,3 +465,80 @@ a { color: inherit; }
   .toolbar > .search-field, .deck-search-field { grid-column: auto; }
   .color-filter { width: 100%; }
 }
+
+
+/* Built/Done status filter toggles */
+.status-toggle {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 42px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  color: var(--text);
+  background: linear-gradient(180deg, #252625, #202120);
+  cursor: pointer;
+  font-family: var(--font-table);
+  font-size: 13px;
+  user-select: none;
+}
+.status-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.status-toggle .toggle-box {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #858681;
+  border-radius: 4px;
+  background: #171817;
+}
+.status-toggle input:checked + .toggle-box {
+  border-color: #d7c9a6;
+  background: #d7c9a6;
+}
+.status-toggle input:checked + .toggle-box::after {
+  width: 8px;
+  height: 4px;
+  border-bottom: 2px solid #171817;
+  border-left: 2px solid #171817;
+  content: "";
+  transform: translateY(-1px) rotate(-45deg);
+}
+.status-toggle:focus-within {
+  border-color: #a99d7d;
+  box-shadow: 0 0 0 2px rgba(215,201,166,.12);
+}
+.status-toggle:hover { border-color: #696a67; }
+
+.toolbar {
+  grid-template-columns: minmax(200px, 1fr) minmax(170px, .42fr) minmax(145px, .35fr) minmax(220px, 1fr) auto auto;
+}
+@media (max-width: 1250px) {
+  .toolbar {
+    grid-template-columns: minmax(200px, 1fr) minmax(160px, .45fr) minmax(140px, .4fr);
+  }
+  .deck-search-field { grid-column: 1 / -1; }
+  .status-toggle { justify-content: center; }
+}
+@media (max-width: 850px) {
+  .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toolbar > .search-field { grid-column: auto; }
+  .deck-search-field { grid-column: 1 / -1; }
+  .status-toggle { justify-content: flex-start; }
+}
+@media (max-width: 520px) {
+  .toolbar { grid-template-columns: 1fr; }
+  .toolbar > .search-field, .deck-search-field { grid-column: auto; }
+}
+
+.empty-state[hidden] { display: none; }
