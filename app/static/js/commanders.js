@@ -267,7 +267,7 @@
     visibleGroups.slice(firstGroup, firstGroup + pageLength).forEach((group) => rows.append(group));
     tableBody.replaceChildren(rows);
     const onPage = Math.min(pageLength, Math.max(0, visibleGroups.length - firstGroup));
-    resultCount.textContent = `${visibleCommanderCount.toLocaleString()} commanders · Showing ${onPage.toLocaleString()} of ${visibleDeckRows.toLocaleString()} rows · Page ${currentPage} of ${pageCount}`;
+    resultCount.textContent = `${commanders.length.toLocaleString()} commanders · Showing ${onPage.toLocaleString()} of ${visibleDeckRows.toLocaleString()} rows · Page ${currentPage} of ${pageCount}`;
     emptyState.hidden = visibleCommanderCount !== 0;
     paginationControls.forEach((nav) => {
       nav.querySelector('[data-page="first"]').disabled = currentPage === 1;
