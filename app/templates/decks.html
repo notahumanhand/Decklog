@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Decklog — browse and track Commander decks.">
+  <title>Decklog | Decks</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="/static/js/decks.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Decklog home">Decklog</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="nav-link" href="/">Commanders</a>
+        <a class="nav-link active" href="/decks" aria-current="page">Decks</a>
+        <a class="nav-link" href="#stats" data-placeholder-link>Stats</a>
+        <a class="nav-link" href="#about" data-placeholder-link>About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="decks-toolbar" aria-label="Deck filters">
+        <label class="search-field">
+          <span class="visually-hidden">Search decks</span>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <input id="deck-search" type="search" placeholder="Search decks..." autocomplete="off">
+        </label>
+
+        <label class="search-field">
+          <span class="visually-hidden">Search commanders</span>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <input id="commander-search" type="search" placeholder="Search commanders..." autocomplete="off">
+        </label>
+
+        <div class="color-filter">
+          <span class="visually-hidden" id="color-filter-description">Filter by deck colour identity</span>
+          <input id="color-filter" type="hidden" value="">
+          <button class="filter-trigger" id="color-filter-trigger" type="button" aria-expanded="false" aria-controls="color-filter-menu">
+            <span id="color-filter-label">All Colours</span><span class="filter-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="color-filter-menu" id="color-filter-menu" hidden>
+            <button class="color-option all-colors-option" type="button" data-color="" data-label="All Colours" aria-pressed="true">All Colours</button>
+            <details class="color-group" open><summary>Mono-colour</summary><div class="color-options">
+              <button class="color-option" type="button" data-color="W" data-label="White"><span class="mana-badge" style="--symbol-bg:#F4F2DD;--symbol-text:#212117">W</span>White</button>
+              <button class="color-option" type="button" data-color="U" data-label="Blue"><span class="mana-badge" style="--symbol-bg:#ADDDF4;--symbol-text:#121B38">U</span>Blue</button>
+              <button class="color-option" type="button" data-color="B" data-label="Black"><span class="mana-badge" style="--symbol-bg:#DDD1DB;--symbol-text:#121212">B</span>Black</button>
+              <button class="color-option" type="button" data-color="R" data-label="Red"><span class="mana-badge" style="--symbol-bg:#EFA487;--symbol-text:#330A10">R</span>Red</button>
+              <button class="color-option" type="button" data-color="G" data-label="Green"><span class="mana-badge" style="--symbol-bg:#9AD1A9;--symbol-text:#1D2315">G</span>Green</button>
+              <button class="color-option" type="button" data-color="C" data-label="Colorless"><span class="mana-badge" style="--symbol-bg:#CCCCCC;--symbol-text:#000">C</span>Colorless</button>
+            </div></details>
+            <details class="color-group"><summary>Two-colour</summary><div class="color-options">
+              <button class="color-option" type="button" data-color="WU" data-label="Azorius">WU — Azorius</button><button class="color-option" type="button" data-color="UB" data-label="Dimir">UB — Dimir</button><button class="color-option" type="button" data-color="BR" data-label="Rakdos">BR — Rakdos</button><button class="color-option" type="button" data-color="RG" data-label="Gruul">RG — Gruul</button><button class="color-option" type="button" data-color="GW" data-label="Selesnya">GW — Selesnya</button><button class="color-option" type="button" data-color="WB" data-label="Orzhov">WB — Orzhov</button><button class="color-option" type="button" data-color="UR" data-label="Izzet">UR — Izzet</button><button class="color-option" type="button" data-color="BG" data-label="Golgari">BG — Golgari</button><button class="color-option" type="button" data-color="RW" data-label="Boros">RW — Boros</button><button class="color-option" type="button" data-color="GU" data-label="Simic">GU — Simic</button>
+            </div></details>
+            <details class="color-group"><summary>Three or more colours</summary><div class="color-options">
+              <button class="color-option" type="button" data-color="WUB" data-label="Esper">WUB — Esper</button><button class="color-option" type="button" data-color="UBR" data-label="Grixis">UBR — Grixis</button><button class="color-option" type="button" data-color="BRG" data-label="Jund">BRG — Jund</button><button class="color-option" type="button" data-color="RGW" data-label="Naya">RGW — Naya</button><button class="color-option" type="button" data-color="GWU" data-label="Bant">GWU — Bant</button><button class="color-option" type="button" data-color="WBG" data-label="Abzan">WBG — Abzan</button><button class="color-option" type="button" data-color="WUR" data-label="Jeskai">WUR — Jeskai</button><button class="color-option" type="button" data-color="UBG" data-label="Sultai">UBG — Sultai</button><button class="color-option" type="button" data-color="WBR" data-label="Mardu">WBR — Mardu</button><button class="color-option" type="button" data-color="URG" data-label="Temur">URG — Temur</button><button class="color-option" type="button" data-color="WUBRG" data-label="Five Colour">WUBRG — Five Colour</button>
+            </div></details>
+          </div>
+        </div>
+
+        <label class="filter-field">
+          <span class="visually-hidden">Filter by bracket</span>
+          <select id="bracket-filter"><option value="">All Brackets</option><option value="1">Bracket 1</option><option value="2">Bracket 2</option><option value="3">Bracket 3</option><option value="4">Bracket 4</option><option value="5">Bracket 5</option><option value="unassigned">Unassigned</option></select>
+        </label>
+
+        <label class="filter-field status-filter-field">
+          <span class="visually-hidden">Filter by deck completion</span>
+          <select id="status-filter"><option value="all">All Decks</option><option value="unfinished">Unfinished</option><option value="complete">Complete</option></select>
+        </label>
+      </section>
+
+      <div class="catalogue-meta">
+        <p id="result-count" aria-live="polite">Loading decks…</p>
+        <button class="reset-button" id="reset-filters" type="button">Reset filters</button>
+      </div>
+
+      <nav class="pagination pagination-top" aria-label="Deck table pages">
+        <button type="button" data-page="first" aria-label="First page">«</button><button type="button" data-page="previous" aria-label="Previous page">‹</button>
+        <label><span class="visually-hidden">Decks per page</span><select id="page-length"><option value="10" selected>10</option><option value="20">20</option><option value="50">50</option></select></label>
+        <button type="button" data-page="next" aria-label="Next page">›</button><button type="button" data-page="last" aria-label="Last page">»</button>
+      </nav>
+
+      <section class="table-frame" aria-label="Deck collection">
+        <div class="table-scroll">
+          <table class="decks-table">
+            <thead><tr><th scope="col">Name</th><th scope="col">Commander(s)</th><th scope="col">Colors</th><th scope="col">Bracket</th><th scope="col" class="center-cell">Done</th></tr></thead>
+            <tbody id="decks-table-body"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state" hidden><strong>No decks match these filters.</strong><span>Try a different search or reset the filters.</span></div>
+      </section>
+
+      <nav class="pagination pagination-bottom" aria-label="Deck table pages">
+        <button type="button" data-page="first" aria-label="First page">«</button><button type="button" data-page="previous" aria-label="Previous page">‹</button>
+        <label><span class="visually-hidden">Decks per page</span><select class="page-length-bottom"><option value="10" selected>10</option><option value="20">20</option><option value="50">50</option></select></label>
+        <button type="button" data-page="next" aria-label="Next page">›</button><button type="button" data-page="last" aria-label="Last page">»</button>
+      </nav>
+      <p class="prototype-note">Deck data and commander details are loaded from the local project datasets.</p>
+    </main>
+  </div>
+</body>
+</html>

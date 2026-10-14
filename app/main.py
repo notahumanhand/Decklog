@@ -175,6 +175,16 @@ async def homepage(request: Request):
     )
 
 
+@app.get("/decks", include_in_schema=False)
+async def decks_page(request: Request):
+    """Render the deck-centric collection page."""
+    return templates.TemplateResponse(
+        request=request,
+        name="decks.html",
+        context={"page_title": "Decklog | Decks"},
+    )
+
+
 @app.get("/api/health")
 async def health_check() -> dict[str, str]:
     """Lightweight health endpoint suitable for Render's health check."""
