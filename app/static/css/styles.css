@@ -186,7 +186,7 @@ a { color: inherit; }
   box-shadow: 0 5px 16px rgba(0,0,0,.08);
 }
 .table-scroll { overflow-x: auto; }
-.commander-table {
+.data-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -196,14 +196,14 @@ a { color: inherit; }
   text-align: left;
   white-space: nowrap;
 }
-.commander-table th, .commander-table td {
+.data-table th, .data-table td {
   height: 59px;
   padding: 0 12px;
   border-right: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
   vertical-align: middle;
 }
-.commander-table th {
+.data-table th {
   height: 59px;
   color: #e5e4e0;
   background: #202120;
@@ -211,11 +211,11 @@ a { color: inherit; }
   font-weight: 600;
   line-height: 1.55;
 }
-.commander-table th:last-child, .commander-table td:last-child { border-right: 0; }
-.commander-table tbody tr:last-child td { border-bottom: 0; }
-.commander-table tbody tr { background: rgba(255,255,255,.012); }
-.commander-table tbody tr:nth-child(even) { background: rgba(255,255,255,.025); }
-.commander-table tbody tr:hover { background: rgba(215,201,166,.055); }
+.data-table th:last-child, .data-table td:last-child { border-right: 0; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr { background: rgba(255,255,255,.012); }
+.data-table tbody tr:nth-child(even) { background: rgba(255,255,255,.025); }
+.data-table tbody tr:hover { background: rgba(215,201,166,.055); }
 
 .commander-table th:nth-child(1) { min-width: 58px; }
 .commander-table th:nth-child(2) { min-width: 140px; }
@@ -230,14 +230,14 @@ a { color: inherit; }
 .id-cell { color: #c9c8c4; }
 .mana-cost { letter-spacing: -.15px; }
 .numeric-cell, .center-cell { text-align: center; }
-.commander-table input[type="checkbox"] {
+.data-table input[type="checkbox"] {
   width: 19px;
   height: 19px;
   margin: 0;
   accent-color: #f0efec;
   vertical-align: middle;
 }
-.commander-table input[type="checkbox"]:disabled { opacity: 1; cursor: default; }
+.data-table input[type="checkbox"]:disabled { opacity: 1; cursor: default; }
 .deck-link {
   color: #e0ded8;
   text-decoration: underline;
@@ -543,6 +543,8 @@ a { color: inherit; }
 
 .empty-state[hidden] { display: none; }
 
+/* Shared table component styles are defined by .data-table above.
+   Page classes below control only column sizing and page-specific cell behavior. */
 /* Fixed catalogue column proportions, with long names and types wrapping in-cell. */
 .commander-table {
   table-layout: fixed;
@@ -609,7 +611,7 @@ a { color: inherit; }
 .status-filter-field select { width: 100%; min-width: 0; padding: 0 12px; }
 
 @media (max-width: 850px) {
-  .commander-table { min-width: 980px; }
+  .data-table { min-width: 980px; }
 }
 
 
@@ -658,19 +660,16 @@ a { color: inherit; }
 .color-filter-menu .color-option:hover,
 .color-filter-menu .color-option[aria-pressed="true"] { background: #373835; }
 .color-filter-menu .color-group summary { padding: 8px; cursor: pointer; color: var(--text-muted); }
-.decks-table { width: 100%; min-width: 800px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-.decks-table th, .decks-table td { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 14px 12px; vertical-align: middle; }
-.decks-table th { color: #e9e8e4; font-family: var(--font-table); font-size: 14px; font-weight: 700; text-align: left; background: #202120; }
+/* Deck-specific table layout: shared appearance comes from .data-table. */
+.decks-table { min-width: 800px; table-layout: fixed; }
 .decks-table th:first-child, .decks-table td:first-child { width: 27%; }
 .decks-table th:nth-child(2), .decks-table td:nth-child(2) { width: 34%; }
 .decks-table th:nth-child(3), .decks-table td:nth-child(3) { width: 17%; }
 .decks-table th:nth-child(4), .decks-table td:nth-child(4) { width: 12%; }
 .decks-table th:nth-child(5), .decks-table td:nth-child(5) { width: 10%; }
-.decks-table th:last-child, .decks-table td:last-child { border-right: 0; }
-.decks-table tbody tr:last-child td { border-bottom: 0; }
-.decks-table td { overflow-wrap: anywhere; font-family: var(--font-table); font-size: 13px; }
+ .decks-table td { overflow-wrap: anywhere; font-size: 13px; }
 .decks-table .deck-name-cell { font-size: 14px; }
-.decks-table .deck-commanders { line-height: 1.55; }
+.decks-table .deck-commanders { line-height: 1.55; white-space: normal; }
 .decks-table .companion-label { color: var(--text-muted); font-size: 12px; }
 .decks-table .colour-identity { white-space: nowrap; }
 .decks-table .mana-badge { margin-right: 3px; }
@@ -681,5 +680,5 @@ a { color: inherit; }
 }
 @media (max-width: 600px) {
   .decks-toolbar { grid-template-columns: minmax(0, 1fr); }
-  .decks-table { min-width: 720px; }
+  .decks-table { min-width: 800px; }
 }
