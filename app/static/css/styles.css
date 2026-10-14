@@ -542,3 +542,72 @@ a { color: inherit; }
 }
 
 .empty-state[hidden] { display: none; }
+
+/* Fixed catalogue column proportions, with long names and types wrapping in-cell. */
+.commander-table {
+  table-layout: fixed;
+  white-space: normal;
+}
+.commander-table th,
+.commander-table td {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.commander-table th {
+  font-size: 14px;
+}
+.commander-table td:first-child {
+  font-size: 13px;
+  font-weight: 400;
+}
+.commander-table th:nth-child(1), .commander-table td:nth-child(1) { width: 13.2%; }
+.commander-table th:nth-child(2), .commander-table td:nth-child(2) { width: 11.5%; }
+.commander-table th:nth-child(3), .commander-table td:nth-child(3) { width: 11%; }
+.commander-table th:nth-child(4), .commander-table td:nth-child(4) { width: 4%; }
+.commander-table th:nth-child(5), .commander-table td:nth-child(5) { width: 20%; }
+.commander-table th:nth-child(6), .commander-table td:nth-child(6) { width: 4%; }
+.commander-table th:nth-child(7), .commander-table td:nth-child(7) { width: 4%; }
+.commander-table th:nth-child(8), .commander-table td:nth-child(8) { width: 27%; }
+.commander-table th:nth-child(9), .commander-table td:nth-child(9) { width: 5.3%; }
+.commander-table .mana-cost,
+.commander-table .colour-identity { overflow-wrap: normal; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  margin: 8px 2px 12px;
+  color: var(--text-muted);
+  font-family: var(--font-table);
+  font-size: 13px;
+}
+.pagination-bottom { margin-top: 12px; }
+.pagination button,
+.pagination select {
+  min-width: 36px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: linear-gradient(180deg, #252625, #202120);
+  font-family: var(--font-table);
+  font-size: 15px;
+}
+.pagination select { min-width: 62px; font-size: 13px; }
+.pagination button { cursor: pointer; }
+.pagination button:disabled {
+  color: #777874;
+  background: #1b1c1b;
+  border-color: #303130;
+  cursor: default;
+  opacity: .65;
+}
+.pagination button:not(:disabled):hover { border-color: var(--accent); }
+.status-filter-field { min-width: 0; }
+.status-filter-field select { width: 100%; min-width: 0; padding: 0 12px; }
+
+@media (max-width: 850px) {
+  .commander-table { min-width: 980px; }
+}

@@ -7,8 +7,12 @@
   const colorMenu = document.getElementById("color-filter-menu");
   const colorLabel = document.getElementById("color-filter-label");
   const bracketFilter = document.getElementById("bracket-filter");
-  const builtFilter = document.getElementById("built-filter");
-  const doneFilter = document.getElementById("done-filter");
+  const statusFilter = document.getElementById("status-filter");
+  const pageLengthSelect = document.getElementById("page-length");
+  const pageLengthBottom = document.querySelector(".page-length-bottom");
+  const paginationControls = document.querySelectorAll(".pagination");
+  let currentPage = 1;
+  let pageLength = 10;
   const resetButton = document.getElementById("reset-filters");
   const resultCount = document.getElementById("result-count");
   const emptyState = document.getElementById("empty-state");
@@ -102,8 +106,13 @@
         badgeClass += " generic-badge";
       } else if (symbol.includes("/")) {
         const letters = symbol.split("/");
-        const known = letters.find((letter) => symbolColors[letter]);
-        background = known ? symbolColors[known] : symbolColors.C;
+        const known = letters.filter((letter) => symbolColors[letter]);
+        if (known.length === 2) {
+          const rgb = known.map((letter) => symbolColors[letter][0].match(/[A-Fa-f0-9]{2}/g).map((hex) => parseInt(hex, 16)));
+          const mixed = rgb[0].map((channel, index) => Math.round((channel + rgb[1][index]) / 2));
+          const bg = "#" + mixed.map((channel) => channel.toString(16).padStart(2, "0")).join("");
+          background = [bg, "#202020"];
+        } else background = known.length ? symbolColors[known[0]] : symbolColors.C;
         label = symbol.replaceAll("P", "ᵖ");
         badgeClass += " hybrid-badge";
       }
@@ -173,8 +182,10 @@
       const hasBracket = deck.bracket !== null && deck.bracket !== undefined && deck.bracket !== "";
       const matchesBracket = !selectedBracket ||
         (selectedBracket === "unassigned" ? !hasBracket : String(deck.bracket) === selectedBracket);
-      const matchesDone = !doneFilter.checked || Boolean(deck.done);
-      return matchesDeck && matchesBracket && matchesDone;
+      const status = statusFilter.value;
+      const matchesStatus = status === "all" || status === "unbuilt" || status === "built" ||
+        (status === "unfinished" && !deck.done) || (status === "complete" && Boolean(deck.done));
+      return matchesDeck && matchesBracket && matchesStatus;
     });
   }
 
@@ -184,13 +195,20 @@
     const rows = document.createDocumentFragment();
     let visibleCommanderCount = 0;
     let visibleDeckRows = 0;
+    const visibleGroups = [];
 
     const filteredCommanders = commanders.filter((commander) => {
       const matchesCommander = !commanderQuery || normalize(commander.name).includes(commanderQuery);
       const matchesColor = !selectedColor ||
         canonicalColors(commander.color_identity || commander.colors) === selectedColor;
-      const matchesBuilt = !builtFilter.checked || Boolean(commander.built);
-      return matchesCommander && matchesColor && matchesBuilt;
+      const status = statusFilter.value;
+      const hasDecks = commander.decks.length > 0;
+      const matchesStatus = status === "all" ||
+        (status === "unbuilt" && !commander.built) ||
+        (status === "built" && Boolean(commander.built)) ||
+        (status === "unfinished" && Boolean(commander.built) && hasDecks && commander.decks.some((deck) => !deck.done)) ||
+        (status === "complete" && Boolean(commander.built) && hasDecks && commander.decks.some((deck) => deck.done));
+      return matchesCommander && matchesColor && matchesStatus;
     });
 
     filteredCommanders.forEach((commander) => {
@@ -199,7 +217,7 @@
       // A commander with no associated decks still has a catalogue row, unless a
       // deck-level filter requires a deck to exist.
       if (!commander.decks.length) {
-        if (deckSearch.value.trim() || doneFilter.checked ||
+        if (deckSearch.value.trim() || (statusFilter.value !== "all" && statusFilter.value !== "unbuilt") ||
             (bracketFilter.value && bracketFilter.value !== "unassigned")) {
           return;
         }
@@ -207,10 +225,16 @@
       }
 
       if (commander.decks.length && visibleDecks.length === 0) return;
+      if (statusFilter.value === "unfinished") visibleDecks = visibleDecks.filter((deck) => !deck.done);
+      if (statusFilter.value === "complete") visibleDecks = visibleDecks.filter((deck) => Boolean(deck.done));
+      if (statusFilter.value === "built" && !commander.built) return;
+      if (statusFilter.value === "unbuilt" && commander.built) return;
+      if ((statusFilter.value === "unfinished" || statusFilter.value === "complete") && !visibleDecks.length) return;
 
       visibleCommanderCount += 1;
       const rowCount = Math.max(visibleDecks.length, 1);
       visibleDeckRows += rowCount;
+      const group = document.createDocumentFragment();
 
       if (!visibleDecks.length) {
         const row = document.createElement("tr");
@@ -218,7 +242,8 @@
         row.dataset.colors = canonicalColors(commander.color_identity || commander.colors);
         row.append(...makeCommanderCells(commander, 1));
         row.append(makeCell("", "center-cell"), makeCell(""), makeCell(""));
-        rows.append(row);
+        group.append(row);
+        visibleGroups.push(group);
         return;
       }
 
@@ -230,14 +255,26 @@
         row.dataset.bracket = deck.bracket ?? "";
         if (index === 0) row.append(...makeCommanderCells(commander, rowCount));
         row.append(...makeDeckCells(deck, commander.name));
-        rows.append(row);
+        group.append(row);
       });
+      visibleGroups.push(group);
     });
 
+    window.decklogFilteredCommanderCount = visibleGroups.length;
+    const pageCount = Math.max(1, Math.ceil(visibleGroups.length / pageLength));
+    currentPage = Math.min(currentPage, pageCount);
+    const firstGroup = (currentPage - 1) * pageLength;
+    visibleGroups.slice(firstGroup, firstGroup + pageLength).forEach((group) => rows.append(group));
     tableBody.replaceChildren(rows);
-    resultCount.textContent =
-      `Showing ${visibleCommanderCount.toLocaleString()} of ${commanders.length.toLocaleString()} commanders · ${visibleDeckRows.toLocaleString()} rows`;
+    const onPage = Math.min(pageLength, Math.max(0, visibleGroups.length - firstGroup));
+    resultCount.textContent = `${visibleCommanderCount.toLocaleString()} commanders · Showing ${onPage.toLocaleString()} of ${visibleDeckRows.toLocaleString()} rows · Page ${currentPage} of ${pageCount}`;
     emptyState.hidden = visibleCommanderCount !== 0;
+    paginationControls.forEach((nav) => {
+      nav.querySelector('[data-page="first"]').disabled = currentPage === 1;
+      nav.querySelector('[data-page="previous"]').disabled = currentPage === 1;
+      nav.querySelector('[data-page="next"]').disabled = currentPage === pageCount;
+      nav.querySelector('[data-page="last"]').disabled = currentPage === pageCount;
+    });
   }
 
   function selectColor(value, label) {
@@ -268,20 +305,45 @@
     }
   });
 
-  [commanderSearch, deckSearch, bracketFilter, builtFilter, doneFilter].forEach((control) => {
-    control.addEventListener("input", applyFilters);
-    control.addEventListener("change", applyFilters);
+  [commanderSearch, deckSearch, bracketFilter, statusFilter].forEach((control) => {
+    control.addEventListener("input", () => { currentPage = 1; applyFilters(); });
+    control.addEventListener("change", () => { currentPage = 1; applyFilters(); });
   });
+  function setPageLength(value) {
+    pageLength = Number(value) || 10;
+    pageLengthSelect.value = String(pageLength);
+    pageLengthBottom.value = String(pageLength);
+    currentPage = 1;
+    applyFilters();
+  }
+  pageLengthSelect.addEventListener("change", () => setPageLength(pageLengthSelect.value));
+  pageLengthBottom.addEventListener("change", () => setPageLength(pageLengthBottom.value));
+  paginationControls.forEach((nav) => nav.querySelectorAll("button[data-page]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const pageCount = Math.max(1, Math.ceil(getFilteredCommanderCount() / pageLength));
+      const action = button.dataset.page;
+      if (action === "first") currentPage = 1;
+      if (action === "previous") currentPage = Math.max(1, currentPage - 1);
+      if (action === "next") currentPage = Math.min(pageCount, currentPage + 1);
+      if (action === "last") currentPage = pageCount;
+      applyFilters();
+    });
+  }));
 
   resetButton.addEventListener("click", () => {
     commanderSearch.value = "";
     deckSearch.value = "";
     bracketFilter.value = "";
-    builtFilter.checked = false;
-    doneFilter.checked = false;
+    statusFilter.value = "all";
+    currentPage = 1;
     selectColor("", "All Colors");
     commanderSearch.focus();
   });
+
+  function getFilteredCommanderCount() {
+    // Reuse the currently rendered page count text's backing dataset, populated during filtering.
+    return window.decklogFilteredCommanderCount || commanders.length;
+  }
 
   async function loadCommanders() {
     try {

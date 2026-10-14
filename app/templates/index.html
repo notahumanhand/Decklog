@@ -114,16 +114,15 @@
           <input id="deck-search" type="search" placeholder="Search deck names..." autocomplete="off">
         </label>
 
-        <label class="status-toggle">
-          <input id="built-filter" type="checkbox">
-          <span class="toggle-box" aria-hidden="true"></span>
-          <span>Built only</span>
-        </label>
-
-        <label class="status-toggle">
-          <input id="done-filter" type="checkbox">
-          <span class="toggle-box" aria-hidden="true"></span>
-          <span>Done only</span>
+        <label class="filter-field status-filter-field">
+          <span class="visually-hidden">Filter by deck status</span>
+          <select id="status-filter">
+            <option value="all">All Decks</option>
+            <option value="unbuilt">Unbuilt</option>
+            <option value="built">Built</option>
+            <option value="unfinished">Unfinished</option>
+            <option value="complete">Complete</option>
+          </select>
         </label>
       </section>
 
@@ -131,6 +130,16 @@
         <p id="result-count" aria-live="polite">Loading commander catalogue…</p>
         <button class="reset-button" id="reset-filters" type="button">Reset filters</button>
       </div>
+
+      <nav class="pagination pagination-top" aria-label="Commander table pages">
+        <button type="button" data-page="first" aria-label="First page">«</button>
+        <button type="button" data-page="previous" aria-label="Previous page">‹</button>
+        <label><span class="visually-hidden">Commanders per page</span>
+          <select id="page-length"><option value="10" selected>10</option><option value="20">20</option><option value="50">50</option></select>
+        </label>
+        <button type="button" data-page="next" aria-label="Next page">›</button>
+        <button type="button" data-page="last" aria-label="Last page">»</button>
+      </nav>
 
       <section class="table-frame" aria-label="Commander catalogue">
         <div class="table-scroll">
@@ -156,6 +165,16 @@
           <span>Try a different search or reset the filters.</span>
         </div>
       </section>
+
+      <nav class="pagination pagination-bottom" aria-label="Commander table pages">
+        <button type="button" data-page="first" aria-label="First page">«</button>
+        <button type="button" data-page="previous" aria-label="Previous page">‹</button>
+        <label><span class="visually-hidden">Commanders per page</span>
+          <select class="page-length-bottom"><option value="10" selected>10</option><option value="20">20</option><option value="50">50</option></select>
+        </label>
+        <button type="button" data-page="next" aria-label="Next page">›</button>
+        <button type="button" data-page="last" aria-label="Last page">»</button>
+      </nav>
 
       <p class="prototype-note">Commander data and deck associations are loaded from the local project datasets.</p>
     </main>

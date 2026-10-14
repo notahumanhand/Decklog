@@ -2,8 +2,8 @@
   "metadata": {
     "project": "Decklog",
     "created_at": "2026-10-12T23:06:30.476964+00:00",
-    "last_updated": "2026-10-13T19:17:05.391110+00:00",
-    "deck_count": 52
+    "last_updated": "2026-10-14T01:01:33.910223+00:00",
+    "deck_count": 71
   },
   "decks": [
     {
@@ -374,6 +374,140 @@
       "commander_id": "b9be5ce9-08bb-4361-940c-9031e429ba86",
       "secondary_commander_id": "584cee10-f18c-4633-95cc-f2e7a11841ac",
       "bracket": 2,
+      "done": false
+    },
+    {
+      "deck_id": "9tx8_aBN4EuWNBCVZ8rFxQ",
+      "deck_name": ":3",
+      "commander_id": "2c0fc559-857f-4239-97fa-379ced3dfc1f",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "2z1uCR_sq0WOLEioUItydA",
+      "deck_name": "aggressive gargling",
+      "commander_id": "027989e7-20c4-4773-b6b4-20337cc5fe8c",
+      "bracket": 4,
+      "done": false
+    },
+    {
+      "deck_id": "ZajfIKFHs06PO3sSfPoLJg",
+      "deck_name": "ahoy",
+      "commander_id": "436e7548-f8d5-43af-947d-b382da0d19b3",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "NXLIs9ckz0GiInWjMsskeA",
+      "deck_name": "alesha my beloved",
+      "commander_id": "17ce2c17-b69b-4ebf-9c3c-c64e771af101",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "7bNf-WPgMEm-puySJJRwGA",
+      "deck_name": "all i know is that i must kill",
+      "commander_id": "764f6412-c4ff-4eec-9a9d-870661f97f8b",
+      "bracket": 4,
+      "done": false
+    },
+    {
+      "deck_id": "g2i-5hJPhUO6rn_601lMHQ",
+      "deck_name": "and this is why we cant have nice things",
+      "commander_id": "046ccc8a-ec0d-4dc5-b41d-5e8a6d86812a",
+      "bracket": 4,
+      "done": false
+    },
+    {
+      "deck_id": "0p3RdBWDTEGoj1knJgSj7w",
+      "deck_name": "as far as i'm concerned, that's america's ass",
+      "commander_id": "aeaf7768-ed67-487d-8506-e667babb88ba",
+      "bracket": 4,
+      "done": false
+    },
+    {
+      "deck_id": "KeMT2Zr0yE6RoA_8hvqv9g",
+      "deck_name": "aura so intense you can see it from space",
+      "commander_id": "e8f213eb-58db-4fab-bd0b-2acfd0a86ac3",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "DOvhjfK5bEqea02hYZRCGA",
+      "deck_name": "autodefenestration",
+      "commander_id": "a6e50e06-6d1d-457d-8fbb-ec9a866960c3",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "rIn5ul72nkiMuiX7BmKBiw",
+      "deck_name": "be gay do crime",
+      "commander_id": "37449c93-4d32-4f1a-982f-8f3416214368",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "L6VrY7YWdk-lWqUi07xnnA",
+      "deck_name": "bippity boppity your abilities are now my property",
+      "commander_id": "93cfa771-067f-44ed-9e29-6caf698ee9aa",
+      "bracket": 4,
+      "done": false
+    },
+    {
+      "deck_id": "_zGpSpU3C0OZacnS0_UgPQ",
+      "deck_name": "bullseye",
+      "commander_id": "43674fdf-496f-42dc-8a0a-5c42a7c7d910",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "T_z4KPrgFE6IWZQHPd-FmQ",
+      "deck_name": "but not funny haha, funny weird",
+      "commander_id": "095d9719-0db6-43de-8e4f-a0035a4c65ed",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "UmZmOGMFvk2rEhNIPiCcmA",
+      "deck_name": "cheating at staring contests",
+      "commander_id": "143a269a-b9ee-48ba-bd7b-4aa46eb36778",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "lPXHm3hyr0uGN_8yck6s0A",
+      "deck_name": "collateral damage",
+      "commander_id": "e86c965b-ac10-4fff-b682-dddd6d9747c6",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "iYKIFcOz8k2Z5qRFhynWEw",
+      "deck_name": "counter? i hardly know her!",
+      "commander_id": "3001f971-c4db-4176-89b5-e7f4a8890c0f",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "t6LzfptPRE2i31id7m1S_A",
+      "deck_name": "counterspell? how about you counter these fists",
+      "commander_id": "17475cf0-661d-4361-827b-1e4d638089f1",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "4lslRieUBEWs_IXr-dY-5Q",
+      "deck_name": "crazy? i was crazy once",
+      "commander_id": "9cc69ea5-42a2-4306-ac6d-cff5adb20bcb",
+      "bracket": 3,
+      "done": false
+    },
+    {
+      "deck_id": "T5pl_kalzUCg9_vzpe-neg",
+      "deck_name": "crumch",
+      "commander_id": "09199ebd-2c09-455f-ac10-3dbff8e6d428",
+      "secondary_commander_id": "76771556-3eb7-4f87-aaeb-32ea81105aa2",
+      "bracket": 3,
       "done": false
     }
   ]
