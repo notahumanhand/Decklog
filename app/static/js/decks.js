@@ -207,6 +207,21 @@
   pageLengthSelect.addEventListener("change", () => changePageLength(pageLengthSelect.value));
   pageLengthBottom.addEventListener("change", () => changePageLength(pageLengthBottom.value));
 
+  function initialiseFiltersFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const requestedColor = params.get("colors") || params.get("color") || "";
+    if (!requestedColor) return;
+
+    const canonical = canonicalColors(requestedColor);
+    const option = Array.from(colorMenu.querySelectorAll(".color-option"))
+      .find(button => button.dataset.color !== undefined && button.dataset.color !== "" && canonicalColors(button.dataset.color) === canonical);
+    colorFilter.value = canonical;
+    colorLabel.textContent = option?.dataset.label || (canonical === "C" ? "Colourless" : canonical);
+    colorMenu.querySelectorAll(".color-option").forEach(button => {
+      button.setAttribute("aria-pressed", String(button === option));
+    });
+  }
+
   async function loadDecks() {
     try {
       const [commanderResponse, deckResponse] = await Promise.all([fetch("/api/commanders"), fetch("/api/decks")]);
@@ -232,5 +247,6 @@
       emptyState.querySelector("span").textContent = error.message;
     }
   }
+  initialiseFiltersFromUrl();
   loadDecks();
 })();

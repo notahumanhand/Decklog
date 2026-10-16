@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Decklog — statistics about your Commander decks and commanders.">
+  <title>Decklog | Stats</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="/static/js/stats.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Decklog home">Decklog</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="nav-link" href="/">Commanders</a>
+        <a class="nav-link" href="/decks">Decks</a>
+        <a class="nav-link active" href="/stats" aria-current="page">Stats</a>
+        <a class="nav-link" href="#about" data-placeholder-link>About</a>
+      </nav>
+    </header>
+
+    <main class="stats-page">
+      <section class="stats-intro">
+        <h1>Stats</h1>
+        <p>A summary of your Commander catalogue and deckbuilding progress.</p>
+        <p class="stats-updated">Decklist last updated: <time id="last-updated">Loading…</time></p>
+      </section>
+
+      <section class="stats-metrics" aria-label="Collection summary">
+        <article class="stat-card"><span class="stat-label">Commanders in the catalogue</span><strong id="total-commanders">—</strong></article>
+        <article class="stat-card"><span class="stat-label">Decks</span><strong id="total-decks">—</strong></article>
+        <article class="stat-card"><span class="stat-label">Commanders built</span><strong id="commanders-built-percent">—</strong><span class="stat-detail" id="commanders-built-detail"></span></article>
+        <article class="stat-card"><span class="stat-label">Built decks marked done</span><strong id="decks-done-percent">—</strong><span class="stat-detail" id="decks-done-detail"></span></article>
+      </section>
+
+      <section class="stats-panel" aria-labelledby="commander-status-heading">
+        <div class="stats-panel-heading">
+          <div><h2 id="commander-status-heading">Commander Status</h2><p>Each commander is classified by its associated decks.</p></div>
+        </div>
+        <div class="status-chart-layout">
+          <div class="status-pie" id="commander-status-pie" role="img" aria-label="Commander status chart"><span>Loading…</span></div>
+          <ul class="chart-legend" id="commander-status-legend"></ul>
+        </div>
+      </section>
+
+      <section class="stats-panel" aria-labelledby="colour-identity-heading">
+        <div class="stats-panel-heading">
+          <div><h2 id="colour-identity-heading">Decks by Colour Identity</h2><p>Select an identity to open the Decks page with that colour filter applied.</p></div>
+        </div>
+        <div id="colour-identity-sections" class="colour-identity-sections" aria-live="polite"><p class="stats-loading">Loading colour identities…</p></div>
+      </section>
+
+      <section class="stats-panel" aria-labelledby="bracket-heading">
+        <div class="stats-panel-heading">
+          <div><h2 id="bracket-heading">Decks by Bracket</h2><p>Bracket 0 and unassigned brackets are excluded from the chart.</p></div>
+        </div>
+        <div class="bracket-chart-wrap" id="bracket-chart-wrap">
+          <svg id="bracket-chart" class="bracket-chart" role="img" aria-label="Number of decks in brackets one through five" viewBox="0 0 640 280"></svg>
+        </div>
+        <p class="bracket-excluded-note" id="bracket-excluded-note">Unassigned Brackets: — decks excluded</p>
+      </section>
+
+      <p class="prototype-note">Statistics are calculated from the local commander catalogue and decklist.</p>
+      <div class="stats-error" id="stats-error" role="alert" hidden></div>
+    </main>
+  </div>
+</body>
+</html>

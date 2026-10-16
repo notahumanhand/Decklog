@@ -185,6 +185,16 @@ async def decks_page(request: Request):
     )
 
 
+@app.get("/stats", include_in_schema=False)
+async def stats_page(request: Request):
+    """Render the collection statistics page; data is loaded from the local API."""
+    return templates.TemplateResponse(
+        request=request,
+        name="stats.html",
+        context={"page_title": "Decklog | Stats"},
+    )
+
+
 @app.get("/api/health")
 async def health_check() -> dict[str, str]:
     """Lightweight health endpoint suitable for Render's health check."""
